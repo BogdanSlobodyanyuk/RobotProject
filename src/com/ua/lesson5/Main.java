@@ -25,7 +25,7 @@ public class Main {
 
         if (evenNumber % 2 == 0 & evenNumber != 0) {
             System.out.println("Your number is even");
-        } else System.out.println("You entered number is not even");
+        } else System.out.println("Your entered number is not even");
 
 
         if (tomasAge >= 1 & barryAge >= 1) {
