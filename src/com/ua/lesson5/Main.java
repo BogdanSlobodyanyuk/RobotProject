@@ -6,15 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int integerNumber;
+        int evenNumber;
         int barryAge;
         int tomasAge;
         int luckNumber;
 
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("\n" + "Check yor integer number : ");
-        integerNumber = scanner.nextInt();
+        System.out.print("\n" + "Check if your number is even: ");
+        evenNumber = scanner.nextInt();
         System.out.print("\n" + "Enter age of Barry: ");
         barryAge = scanner.nextInt();
         System.out.print("\n" + "Enter age of Tomas: ");
@@ -23,9 +23,9 @@ public class Main {
         luckNumber = scanner.nextInt();
 
 
-        if (integerNumber % 2 == 0 & integerNumber != 0) {
-            System.out.println("Your number is integer");
-        } else System.out.println("Sorry, but you entered non integer number");
+        if (evenNumber % 2 == 0 & evenNumber != 0) {
+            System.out.println("Your number is even");
+        } else System.out.println("You entered number is not even");
 
 
         if (tomasAge >= 1 & barryAge >= 1) {
