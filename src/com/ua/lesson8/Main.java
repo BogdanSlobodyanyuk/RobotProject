@@ -61,49 +61,55 @@ public class Main {
         System.out.println();
     }
 
-    static int[] sortUserArrayByBubble(int[] userArray) {
-
-        for (int i = 0; i < userArray.length; i++) {
-            for (int j = i + 1; j < userArray.length; j++) {
-                if (userArray[i] > userArray[j]) {
-                    int temp = userArray[i];
-                    userArray[i] = userArray[j];
-                    userArray[j] = temp;
-                }
-            }
-        }
-        return userArray;
-    }
+//    static int[] sortUserArrayByBubble(int[] userArray) {
+//
+//        for (int i = 0; i < userArray.length; i++) {
+//            for (int j = i + 1; j < userArray.length; j++) {
+//                if (userArray[i] > userArray[j]) {
+//                    int temp = userArray[i];
+//                    userArray[i] = userArray[j];
+//                    userArray[j] = temp;
+//                }
+//            }
+//        }
+//        return userArray;
+//    }
 
     static int getMinValueOfUserArrayNumbers(int[] userArray) {
 
-        sortUserArrayByBubble(userArray);
+        int min = userArray[0];
+        for (int i = 1; i < userArray.length; i++) {
+            if (userArray[i] < min) {
+                min = userArray[i];
+            }
+        }
 
-        int minValue = userArray[0];
-
-        return minValue;
+        return min;
     }
 
     static int getMaxValueOfUserArrayNumbers(int[] userArray) {
 
-        sortUserArrayByBubble(userArray);
+        int max = userArray[0];
+        for (int i = 1; i < userArray.length; i++) {
+            if (userArray[i] > max) {
+                max = userArray[i];
+            }
+        }
 
-        int maxValue = userArray[userArray.length - 1];
-
-        return maxValue;
+        return max;
     }
 
     static double getAverageValueOfUserArrayNumbers(int[] userArray) {
 
-        double averageNumber = 0.0d;
+        double sumOfUserArray = 0.0d;
 
         for (int i = 0; i < userArray.length; i++) {
-            averageNumber += userArray[i];
+            sumOfUserArray += userArray[i];
         }
 
-        averageNumber /= userArray.length;
+        double averageOfUserArray = sumOfUserArray / userArray.length;
 
-        return averageNumber;
+        return averageOfUserArray;
     }
 
     static int getSumValueOfAllUserArrayNumbers(int[] userArray) {
@@ -113,6 +119,7 @@ public class Main {
         for (int i = 0; i < userArray.length; i++) {
             sumValue += userArray[i];
         }
+
         return sumValue;
     }
 }
