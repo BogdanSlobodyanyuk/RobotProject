@@ -22,7 +22,7 @@ public class Main {
         System.out.println(studentStepan + "\n" + studentDemian + "\n" + teacherMariya + "\n" + teacherOlha + "\n");
     }
 
-    static void printRandomArray (){
+    static void printRandomArray() {
 
         System.out.println("You can get random array of integer numbers ");
 
@@ -40,12 +40,12 @@ public class Main {
 
         ArrayChanger randomUserArray = new ArrayChanger();
 
-        System.out.println("\n"+"Your random array: ");
+        System.out.println("\n" + "Your random array: ");
         int[] userRandomArray = randomUserArray.createArray(lengthOfRandomArray, minValueOfRandomNumber, maxValueOfRandomNumber);
         randomUserArray.printArray(userRandomArray);
 
         System.out.println("Your array what starts from higher to lower number: ");
-       int[] sortedUserArrayFromLowerToHigher = randomUserArray.sortArrayInDecreasingSide(userRandomArray);
+        int[] sortedUserArrayFromLowerToHigher = randomUserArray.sortArrayInDecreasingSide(userRandomArray);
         randomUserArray.printArray(sortedUserArrayFromLowerToHigher);
 
         System.out.println("Your array what starts from lower to higher number: ");
