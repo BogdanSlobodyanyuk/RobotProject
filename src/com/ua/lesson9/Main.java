@@ -41,15 +41,15 @@ public class Main {
         ArrayChanger randomUserArray = new ArrayChanger();
 
         System.out.println("\n" + "Your random array: ");
-        int[] userRandomArray = randomUserArray.createArray(lengthOfRandomArray, minValueOfRandomNumber, maxValueOfRandomNumber);
+        int[] userRandomArray = randomUserArray.createRandomArray(lengthOfRandomArray, minValueOfRandomNumber, maxValueOfRandomNumber);
         randomUserArray.printArray(userRandomArray);
 
         System.out.println("Your array what starts from higher to lower number: ");
-        int[] sortedUserArrayFromLowerToHigher = randomUserArray.sortArrayInDecreasingSide(userRandomArray);
+        int[] sortedUserArrayFromLowerToHigher = randomUserArray.sortArrayFromHigherToLowerNumber(userRandomArray);
         randomUserArray.printArray(sortedUserArrayFromLowerToHigher);
 
         System.out.println("Your array what starts from lower to higher number: ");
-        int[] sortedUserArrayFromHigherToLower = randomUserArray.sortArrayInIncreasingSide(userRandomArray);
+        int[] sortedUserArrayFromHigherToLower = randomUserArray.sortArrayFromLowertoHigherNumber(userRandomArray);
         randomUserArray.printArray(sortedUserArrayFromHigherToLower);
 
     }

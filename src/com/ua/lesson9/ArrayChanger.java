@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ArrayChanger {
 
-    public int[] createArray(int arrayLenght, int minValueOfRandomNumber, int maxValueOfRandomNumber) {
+    public int[] createRandomArray(int arrayLenght, int minValueOfRandomNumber, int maxValueOfRandomNumber) {
 
         int[] userArray = new int[arrayLenght];
 
@@ -17,7 +17,7 @@ public class ArrayChanger {
         return userArray;
     }
 
-    public int[] sortArrayInIncreasingSide(int[] userArray) {
+    public int[] sortArrayFromLowertoHigherNumber(int[] userArray) {
 
 
         for (int i = 0; i < userArray.length; i++) {
@@ -35,7 +35,7 @@ public class ArrayChanger {
     }
 
 
-    public int[] sortArrayInDecreasingSide(int[] userArray) {
+    public int[] sortArrayFromHigherToLowerNumber(int[] userArray) {
 
         for (int i = 0; i < userArray.length; i++) {
             for (int j = i + 1; j < userArray.length; j++) {
