@@ -2,9 +2,7 @@ package src.com.ua.lesson9;
 
 public class Teacher {
     private final String firstName;
-
     private final String secondName;
-
     private final int age;
     private final int id;
     private final boolean isTeachingNow;

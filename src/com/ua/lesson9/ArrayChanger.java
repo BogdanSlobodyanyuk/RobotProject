@@ -15,6 +15,7 @@ public class ArrayChanger {
 
 
         return userArray;
+
     }
 
     public int[] sortArrayFromLowertoHigherNumber(int[] userArray) {
@@ -48,6 +49,7 @@ public class ArrayChanger {
         }
 
         return userArray;
+
     }
 
     public void printArray(int[] userArray) {
