@@ -39,11 +39,11 @@ public class PassengerCar extends Car {
     @Override
     public String toString() {
         return "Renault{" +
-                "isChildChair=" + isChildChair +
-                ", isOpenedRoof=" + isOpenedRoof +
                 ", model='" + model + '\'' +
                 ", yearOfProduction=" + yearOfProduction +
                 ", typeOfEngine=" + typeOfEngine +
+                "isChildChair=" + isChildChair +
+                ", isOpenedRoof=" + isOpenedRoof +
                 '}';
     }
 }

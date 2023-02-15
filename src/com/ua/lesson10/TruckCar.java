@@ -40,11 +40,11 @@ public class TruckCar extends Car {
     @Override
     public String toString() {
         return "Mercedes{" +
-                "isLightReflector=" + isLightReflector +
-                ", isFoldingTrunk=" + isFoldingTrunk +
                 ", model='" + model + '\'' +
                 ", yearOfProduction=" + yearOfProduction +
                 ", typeOfEngine=" + typeOfEngine +
+                "isLightReflector=" + isLightReflector +
+                ", isFoldingTrunk=" + isFoldingTrunk +
                 '}';
     }
 }
