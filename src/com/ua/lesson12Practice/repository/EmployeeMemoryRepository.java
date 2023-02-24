@@ -1,6 +1,6 @@
-package src.com.ua.lesson11Practice.repository;
+package src.com.ua.lesson12Practice.repository;
 
-import src.com.ua.lesson11Practice.domain.Employee;
+import src.com.ua.lesson12Practice.domain.Employee;
 
 import java.util.Random;
 
