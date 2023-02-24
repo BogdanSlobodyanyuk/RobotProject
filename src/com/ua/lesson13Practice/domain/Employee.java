@@ -1,4 +1,4 @@
-package src.com.ua.lesson12Practice.domain;
+package src.com.ua.lesson13Practice.domain;
 
 public class Employee {
     private int id;

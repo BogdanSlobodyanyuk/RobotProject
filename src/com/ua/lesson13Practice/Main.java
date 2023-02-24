@@ -1,8 +1,8 @@
-package src.com.ua.lesson12Practice;
+package src.com.ua.lesson13Practice;
 
 
-import src.com.ua.lesson12Practice.domain.Employee;
-import src.com.ua.lesson12Practice.service.EmployeeService;
+import src.com.ua.lesson13Practice.domain.Employee;
+import src.com.ua.lesson13Practice.service.EmployeeService;
 
 public class Main {
 
