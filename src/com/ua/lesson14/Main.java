@@ -13,6 +13,7 @@ public class Main {
         MembersOfUniversity student = new Student();
         MembersOfUniversity teacher = new Teacher();
 
+        rector.sortStudentsOfAverageScore();
         student.determinePersonality();
         rector.printStudents();
         teacher.determinePersonality();

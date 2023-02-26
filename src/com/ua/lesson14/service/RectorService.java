@@ -8,7 +8,7 @@ public class RectorService {
 
     private static final String TABLE_FORMAT = "|%-10s |%-20s |%-20s |%-20s |%-15s |%-15s |%-15s|";
     private static final int LINE_SIZE = 129;
-    private MembersArrayRepository memoryArrayRepository;
+    private static MembersArrayRepository memoryArrayRepository;
 
     public RectorService() {
         memoryArrayRepository = new MembersArrayRepository();
@@ -31,6 +31,24 @@ public class RectorService {
             }
         }
         printDivider();
+    }
+
+    public void sortStudentsOfAverageScore() {
+
+        Student[] students = memoryArrayRepository.findAllStudents();
+        Student temp;
+        for (int i = 0; i < students.length; i++) {
+            int num = i + 1;
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[i].getAverageScore() > students[j].getAverageScore()) {
+                    temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                    students[i].setNumberOfStudent(num);
+                }
+                students[students.length - 1].setNumberOfStudent(students.length);
+            }
+        }
     }
 
     public void printTeachers() {
