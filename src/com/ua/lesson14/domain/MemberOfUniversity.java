@@ -1,6 +1,6 @@
 package src.com.ua.lesson14.domain;
 
-public abstract class MembersOfUniversity {
+public abstract class MemberOfUniversity {
 
     protected String firstName;
     protected String secondName;
@@ -9,10 +9,10 @@ public abstract class MembersOfUniversity {
     protected String id;
 
 
-    public MembersOfUniversity() {
+    public MemberOfUniversity() {
     }
 
-    public MembersOfUniversity(String firstName, String secondName, int age, String id) {
+    public MemberOfUniversity(String firstName, String secondName, int age, String id) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;

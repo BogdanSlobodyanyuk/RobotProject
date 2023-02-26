@@ -1,6 +1,6 @@
 package src.com.ua.lesson14.domain;
 
-public class Teacher extends MembersOfUniversity {
+public class Teacher extends MemberOfUniversity {
 
     private int numberOfWorksHours;
     private int salary;

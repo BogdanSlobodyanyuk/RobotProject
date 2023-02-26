@@ -2,7 +2,6 @@ package src.com.ua.lesson14.repository;
 
 import src.com.ua.lesson14.domain.Student;
 import src.com.ua.lesson14.domain.Teacher;
-
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Random;

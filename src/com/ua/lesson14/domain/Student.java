@@ -1,6 +1,6 @@
 package src.com.ua.lesson14.domain;
 
-public class Student extends MembersOfUniversity {
+public class Student extends MemberOfUniversity {
 
     private double averageScore;
     private String studentGroup;
