@@ -7,6 +7,6 @@ public class Main {
         Pilot pilot = new Pilot("Denis","Petrenko");
 
         System.out.println(driver + " always " + driver.drive().concat("s"));
-        System.out.println(pilot + " always " + pilot.fly().replace("y","ie").concat("s"));
+        System.out.println(pilot + " always " + pilot.fly().replace("y","ies"));
     }
 }
