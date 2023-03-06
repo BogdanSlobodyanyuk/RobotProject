@@ -6,9 +6,15 @@ public class Driver extends Human implements Driveable{
         super(name, secondName);
     }
 
+    @Override
+    public void getMe() {
+        System.out.println("look");
+    }
+
 
     @Override
     public String drive() {
         return "drive";
     }
+
 }

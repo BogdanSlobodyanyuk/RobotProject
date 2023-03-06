@@ -8,9 +8,13 @@ public class Pilot extends Human implements Flyeable {
     }
 
     @Override
+    public void getMe() {
+
+    }
+
+    @Override
     public String fly() {
         return "fly";
     }
-
 
 }

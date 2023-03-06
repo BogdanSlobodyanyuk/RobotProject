@@ -14,10 +14,13 @@ public class Main {
         MemberOfUniversity teacher = new Teacher();
 
         rector.sortStudentsOfAverageScore();
+        rector.sortTeacherOfWorksHours();
         student.determinePersonality();
         rector.printStudents();
         teacher.determinePersonality();
         rector.printTeachers();
+
+
 
     }
 

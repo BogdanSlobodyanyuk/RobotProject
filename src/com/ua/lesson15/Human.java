@@ -31,4 +31,6 @@ public abstract class Human{
     public String toString() {
         return name + " " + secondName ;
     }
+
+    public abstract void getMe ();
 }
