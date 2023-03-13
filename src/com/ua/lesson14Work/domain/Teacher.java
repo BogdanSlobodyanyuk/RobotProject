@@ -1,19 +1,19 @@
-package src.com.ua.lesson14.domain;
+package src.com.ua.lesson14Work.domain;
 
 public class Teacher extends MemberOfUniversity {
 
     private int numberOfWorksHours;
     private int salary;
     private int numberOfTeacher;
-
+    private TaxType typeOfEmploee;
     public Teacher() {
     }
 
-
-    public Teacher(String firstName, String secondName, int age, String id, int numberOfWorksHours, int salary) {
+    public Teacher(String firstName, String secondName, int age, String id, int numberOfWorksHours, int salary, TaxType typeOfEmploee) {
         super(firstName, secondName, age, id);
         this.numberOfWorksHours = numberOfWorksHours;
         this.salary = salary;
+        this.typeOfEmploee = typeOfEmploee;
     }
 
     @Override
@@ -21,6 +21,14 @@ public class Teacher extends MemberOfUniversity {
         System.out.println("\n" + "There are Teachers");
     }
 
+
+    public TaxType getTypeOfEmploee() {
+        return typeOfEmploee;
+    }
+
+    public void setTypeOfEmploee(TaxType typeOfEmploee) {
+        this.typeOfEmploee = typeOfEmploee;
+    }
 
     public int getNumberOfWorksHours() {
         return numberOfWorksHours;

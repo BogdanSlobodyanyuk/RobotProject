@@ -1,4 +1,4 @@
-package src.com.ua.lesson14.domain;
+package src.com.ua.lesson14Work.domain;
 
 public class Student extends MemberOfUniversity {
 
