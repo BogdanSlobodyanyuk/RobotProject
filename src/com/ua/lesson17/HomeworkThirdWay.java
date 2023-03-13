@@ -1,4 +1,4 @@
-package src.com.ua.lesson16;
+package src.com.ua.lesson17;
 
 public class HomeworkThirdWay implements HomeworkService {
     @Override

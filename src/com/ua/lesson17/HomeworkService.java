@@ -1,4 +1,4 @@
-package src.com.ua.lesson16;
+package src.com.ua.lesson17;
 
 import java.util.Scanner;
 
