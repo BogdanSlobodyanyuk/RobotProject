@@ -1,14 +1,18 @@
-package src.com.ua.lesson14.service;
+package src.com.ua.lesson14Work.service;
 
-import src.com.ua.lesson14.domain.Student;
-import src.com.ua.lesson14.domain.Teacher;
-import src.com.ua.lesson14.repository.MembersArrayRepository;
-import src.com.ua.lesson14.repository.MembersRepository;
+import src.com.ua.lesson14Work.domain.Student;
+import src.com.ua.lesson14Work.domain.TaxType;
+import src.com.ua.lesson14Work.domain.Teacher;
+import src.com.ua.lesson14Work.repository.MembersArrayRepository;
+import src.com.ua.lesson14Work.repository.MembersRepository;
 
 public class RectorService {
 
-    private static final String TABLE_FORMAT = "|%-10s |%-20s |%-20s |%-20s |%-15s |%-15s |%-15s|";
-    private static final int LINE_SIZE = 129;
+    private static final String TABLE_TEACHERS_FORMAT = "|%-10s |%-20s |%-20s |%-20s |%-15s |%-15s |%-15s |%-11s|";
+    private static final String TABLE_STUDENTS_FORMAT = "|%-10s |%-20s |%-20s |%-20s |%-15s |%-15s |%-15s|";
+    private static final int LINE_SIZE_STUDENTS = 129;
+    private static final int LINE_SIZE_TEACHERS = 141;
+
     private final MembersRepository membersRepository;
 
     public RectorService() {
@@ -20,7 +24,7 @@ public class RectorService {
         printHeaderForStudents();
         for (Student member : membersRepository.findAllStudents()) {
             if (member != null) {
-                String body = String.format(TABLE_FORMAT,
+                String body = String.format(TABLE_STUDENTS_FORMAT,
                         member.getNumberOfStudent(),
                         member.getId(),
                         member.getFirstName(),
@@ -31,7 +35,7 @@ public class RectorService {
                 System.out.println(body);
             }
         }
-        printDivider();
+        printDividerStudents();
     }
 
     public void sortStudentsOfAverageScore() {
@@ -70,38 +74,67 @@ public class RectorService {
         }
     }
 
+    public Teacher[] findTeacherByTaxType(TaxType type) {
+        int size = 0;
+        Teacher[] allTeachers = membersRepository.findAllTeachers();
+        for (Teacher teacher : allTeachers) {
+            if (teacher != null && teacher.getTypeOfEmploee() == type) {
+                size++;
+            }
+        }
+
+        Teacher[] filteredEmployees = new Teacher[size];
+        int index = 0;
+        for (Teacher teacher : allTeachers) {
+            if (teacher != null && teacher.getTypeOfEmploee() == type) {
+                filteredEmployees[index] = teacher;
+                index++;
+            }
+        }
+
+        return filteredEmployees;
+    }
+
     public void printTeachers() {
         printHeaderForTeachers();
         for (Teacher member : membersRepository.findAllTeachers()) {
             if (member != null) {
-                String body = String.format(TABLE_FORMAT,
+                String body = String.format(TABLE_TEACHERS_FORMAT,
                         member.getNumberOfTeacher(),
                         member.getId(),
                         member.getFirstName(),
                         member.getSecondName(),
                         member.getAge(),
                         member.getNumberOfWorksHours(),
-                        member.getSalary());
+                        member.getSalary(),
+                        member.getTypeOfEmploee());
                 System.out.println(body);
             }
         }
-        printDivider();
+        printDividerTeachers();
     }
 
     private void printHeaderForStudents() {
-        printDivider();
-        System.out.printf((TABLE_FORMAT) + "%n", "Number", "ID", "First Name", "Last Name", "Age", "Student Group", "Average Score");
-        printDivider();
+        printDividerStudents();
+        System.out.printf((TABLE_STUDENTS_FORMAT) + "%n", "Number", "ID", "First Name", "Last Name", "Age", "Student Group", "Average Score");
+        printDividerStudents();
     }
 
     private void printHeaderForTeachers() {
-        printDivider();
-        System.out.printf((TABLE_FORMAT) + "%n", "Number", "ID", "First Name", "Last Name", "Age", "Works Hours", "Salary");
-        printDivider();
+        printDividerTeachers();
+        System.out.printf((TABLE_TEACHERS_FORMAT) + "%n", "Number", "ID", "First Name", "Last Name", "Age", "Works Hours", "Salary", "Tax type");
+        printDividerTeachers();
     }
 
-    private void printDivider() {
-        for (int i = 0; i < LINE_SIZE; i++) {
+    private void printDividerStudents() {
+        for (int i = 0; i < LINE_SIZE_STUDENTS; i++) {
+            System.out.print("_");
+        }
+        System.out.println();
+    }
+
+    private void printDividerTeachers() {
+        for (int i = 0; i < LINE_SIZE_TEACHERS; i++) {
             System.out.print("_");
         }
         System.out.println();

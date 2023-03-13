@@ -1,7 +1,8 @@
-package src.com.ua.lesson14.repository;
+package src.com.ua.lesson14Work.repository;
 
-import src.com.ua.lesson14.domain.Student;
-import src.com.ua.lesson14.domain.Teacher;
+import src.com.ua.lesson14Work.domain.Student;
+import src.com.ua.lesson14Work.domain.TaxType;
+import src.com.ua.lesson14Work.domain.Teacher;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -58,6 +59,7 @@ public class MembersArrayRepository implements MembersRepository {
 
     }
 
+    @Override
     public void saveMembersInArray(Student student) {
 
         for (int i = 0; i < allStudents.length; i++) {
@@ -69,9 +71,10 @@ public class MembersArrayRepository implements MembersRepository {
 
     }
 
+    @Override
     public void saveMembersInArray(Teacher teacher) {
 
-        for (int i = 0; i < allStudents.length; i++) {
+        for (int i = 0; i < allTeachers.length; i++) {
             if (allTeachers[i] == null) {
                 allTeachers[i] = teacher;
                 break;
@@ -104,8 +107,10 @@ public class MembersArrayRepository implements MembersRepository {
         int numberOfWorksHours = random.nextInt(20, 50);
         int salary = numberOfWorksHours * 75;
         String id = random.nextInt(1000, 9000) + "_teach";
+        int typeNumber = random.nextInt(2);
+        TaxType typeOfTeacher = typeNumber == 0 ? TaxType.GENERAL_TAX : TaxType.THIRD_GROUP ;
 
-        return new Teacher(nameSize, lastName, age, id, numberOfWorksHours, salary);
+        return new Teacher(nameSize, lastName, age, id, numberOfWorksHours, salary, typeOfTeacher);
 
     }
 
