@@ -13,14 +13,14 @@ public class TeacherService {
 
         NumbersCollections.fillNumbersInSmallCollection();
 
-        return NumbersCollections.smallCollection;
+        return NumbersCollections.getSmallCollection();
     }
 
     public List<Integer> getBigCollectionOfNumbers() {
 
         NumbersCollections.fillNumbersInBigCollection();
 
-        return NumbersCollections.bigCollection;
+        return NumbersCollections.getBigCollection();
     }
 
     public List<Student> getCollectionOfStudents() {

@@ -8,10 +8,18 @@ public class NumbersCollections {
 
     private static final int SIZE_OF_BIG_NUMBERS_COLLECTION = 2000000;
 
-    public static List<Integer> smallCollection = new ArrayList<>();
-    public static List<Integer> bigCollection = new LinkedList<>();
+    private static final List<Integer> smallCollection = new ArrayList<>();
+    private static final List<Integer> bigCollection = new LinkedList<>();
 
     public NumbersCollections() {
+    }
+
+    public static List<Integer> getSmallCollection() {
+        return smallCollection;
+    }
+
+    public static List<Integer> getBigCollection() {
+        return bigCollection;
     }
 
     public static void fillNumbersInSmallCollection() {
