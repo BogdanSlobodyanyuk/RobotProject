@@ -4,10 +4,10 @@ import java.util.*;
 
 public class SaveWords {
 
-    private final String[] ukrainianOriginalWords = {"Кіт", "Машина", "Душа", "Криша", "Сонце", "Класний", "Хмари", "Вітер", "Літо", "Рибалка"}; //This Collection Of Words should upload from some file
-    private final String[] englishTranslatedWords = {"Cat", "Car", "Soul", "Roof", "Sun", "Cool", "Clouds", "Wind", "Summer", "Fishing"};
-    private final String[] germanTranslatedWords = {"Katze", "Auto", "Seele", "Dach", "Sonne", "Kühl", "Wolken", "Wind", "Sommer", "Fischen"};
-    private final String[] japanTranslatedWords = {"猫", "車", " 魂", "屋根", "太陽", "涼", "雲", "風", "夏", "釣り"};
+    private final List<String> ukrainianOriginalWords = List.of("Кіт", "Машина", "Душа", "Криша", "Сонце", "Класний", "Хмари", "Вітер", "Літо", "Рибалка");
+    private final List<String> englishTranslatedWords = List.of("Cat", "Car", "Soul", "Roof", "Sun", "Cool", "Clouds", "Wind", "Summer", "Fishing");
+    private final List<String> germanTranslatedWords = List.of("Katze", "Auto", "Seele", "Dach", "Sonne", "Kühl", "Wolken", "Wind", "Sommer", "Fischen");
+    private final List<String> japanTranslatedWords = List.of("猫", "車", " 魂", "屋根", "太陽", "涼", "雲", "風", "夏", "釣り");
 
     private final Map<String, String> translationFromUkrainianIntoThreeLanguage = new HashMap<>();
 
@@ -15,7 +15,7 @@ public class SaveWords {
         fillMapCollection();
     }
 
-    public String[] getUkrainianOriginalWords() {
+    public List<String> getUkrainianOriginalWords() {
         return ukrainianOriginalWords;
     }
 
@@ -25,10 +25,10 @@ public class SaveWords {
 
 
     public void fillMapCollection() {
-        for (int i = 0; i < ukrainianOriginalWords.length; i++) {
-            translationFromUkrainianIntoThreeLanguage.put(ukrainianOriginalWords[i], englishTranslatedWords[i] + " (English), "
-                    + germanTranslatedWords[i] + " (German), "
-                    + japanTranslatedWords[i] + " (Japan)");
+        for (int i = 0; i < ukrainianOriginalWords.size(); i++) {
+            translationFromUkrainianIntoThreeLanguage.put(ukrainianOriginalWords.get(i), englishTranslatedWords.get(i) + " (English), "
+                    + germanTranslatedWords.get(i) + " (German), "
+                    + japanTranslatedWords.get(i) + " (Japan)");
         }
     }
 }
