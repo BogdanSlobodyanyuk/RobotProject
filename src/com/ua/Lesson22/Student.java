@@ -1,4 +1,4 @@
-package src.com.ua.Lesson22.domain;
+package src.com.ua.Lesson22;
 
 public class Student {
 

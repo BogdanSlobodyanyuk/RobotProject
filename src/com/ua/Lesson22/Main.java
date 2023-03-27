@@ -1,7 +1,5 @@
 package src.com.ua.Lesson22;
 
-import src.com.ua.Lesson22.domain.Student;
-
 import java.util.*;
 
 public class Main {
@@ -20,12 +18,15 @@ public class Main {
 
         System.out.println(students);
 
-        students.sort(Comparator.comparing(Student::getSureName));
+//        students.sort(Comparator.comparing(Student::getSureName));
+
+        students.sort(new StudentSureNameComparator());
         System.out.println(students);
 
-        students.sort(Comparator.comparing(Student::getAverageRate));
-        System.out.println(students);
+//        students.sort(Comparator.comparing(Student::getAverageRate));
 
+        students.sort(new StudentAgeComparator());
+        System.out.println(students);
 
 
     }
