@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println(findOutNumbersOfRepeatOfEverySureName());
-        System.out.println(CountSumOfListNumbers());
+        System.out.println(countSumOfListNumbers());
     }
 
     public static Map findOutNumbersOfRepeatOfEverySureName() {
@@ -31,7 +31,7 @@ public class Main {
     }
 
 
-    public static int CountSumOfListNumbers() {
+    public static int countSumOfListNumbers() {
         List<Integer> numbers = new ArrayList<>();
 
         Random random = new Random();
