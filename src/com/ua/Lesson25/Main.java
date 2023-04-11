@@ -28,18 +28,19 @@ public class Main {
     }
 
     public static void checkerWithValidation() {
-        Scanner scanner = new Scanner(System.in);
-        boolean isEnteredNumber = false;
+        try (Scanner scanner = new Scanner(System.in)) {
+            boolean isEnteredNumber = false;
 
-        while (!isEnteredNumber) {
-            System.out.print("Enter a number: ");
-            if (scanner.hasNextInt()) {
-                int number = scanner.nextInt();
-                System.out.println("You entered: " + number);
-                isEnteredNumber = true;
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
+            while (!isEnteredNumber) {
+                System.out.print("Enter a number: ");
+                if (scanner.hasNextInt()) {
+                    int number = scanner.nextInt();
+                    System.out.println("You entered: " + number);
+                    isEnteredNumber = true;
+                } else {
+                    System.out.println("Invalid input. Please enter a number.");
+                    scanner.next();
+                }
             }
         }
         System.out.println("Program finished");
