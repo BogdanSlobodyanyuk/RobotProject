@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args) {
         String fileName = "example.txt";
         String content = "This is an example of writing to a file.";
-        writeToFile("src/com/ua/Lesson27/" + fileName, content);
-        System.out.println(readFromFile("src/com/ua/Lesson27/" + fileName));
+        String path = "src/com/ua/Lesson27/";
+        writeToFile(path + fileName, content);
+        System.out.println(readFromFile(path + fileName));
 
      //   optionalTask("src/com/ua/Lesson27/" + fileName);
 
