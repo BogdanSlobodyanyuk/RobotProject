@@ -18,7 +18,6 @@ public class Main {
 
     public static void writeToFile(String fileName, String content, String path) {
         try {
-//            Files.createFile(Path.of("src/com/ua/Lesson28/").resolve(fileName));
             Files.write(Path.of(path).resolve(fileName), content.getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
