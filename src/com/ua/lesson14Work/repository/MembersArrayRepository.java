@@ -3,12 +3,11 @@ package src.com.ua.lesson14Work.repository;
 import src.com.ua.lesson14Work.domain.Student;
 import src.com.ua.lesson14Work.domain.TaxType;
 import src.com.ua.lesson14Work.domain.Teacher;
-
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MembersArrayRepository implements MembersRepository {
+public class MembersArrayRepository implements MemberRepositoryForArray {
     private static final int SIZE_ARRAY_OF_TEACHERS = 4;
     private static final int SIZE_ARRAY_OF_STUDENTS = 10;
     private static final String[] NAMES = {"Bohdan", "Ivan", "Vasil", "Denis", "Stepan"};

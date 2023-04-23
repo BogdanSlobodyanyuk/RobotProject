@@ -3,8 +3,14 @@ package src.com.ua.lesson14Work.service;
 import src.com.ua.lesson14Work.domain.Student;
 import src.com.ua.lesson14Work.domain.TaxType;
 import src.com.ua.lesson14Work.domain.Teacher;
+import src.com.ua.lesson14Work.repository.MemberRepositoryForList;
 import src.com.ua.lesson14Work.repository.MembersArrayRepository;
-import src.com.ua.lesson14Work.repository.MembersRepository;
+import src.com.ua.lesson14Work.repository.MemberRepositoryForArray;
+import src.com.ua.lesson14Work.repository.MembersListRepository;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class RectorService {
 
@@ -12,35 +18,59 @@ public class RectorService {
     private static final String TABLE_STUDENTS_FORMAT = "|%-10s |%-20s |%-20s |%-20s |%-15s |%-15s |%-15s|";
     private static final int LINE_SIZE_STUDENTS = 129;
     private static final int LINE_SIZE_TEACHERS = 141;
-
-    private final MembersRepository membersRepository;
+    private final MemberRepositoryForArray membersRepositoryForArray;
+    private final MemberRepositoryForList membersRepositoryForList;
 
     public RectorService() {
-        membersRepository = new MembersArrayRepository();
+        membersRepositoryForArray = new MembersArrayRepository();
+        membersRepositoryForList = new MembersListRepository();
     }
 
 
-    public void printStudents() {
-        printHeaderForStudents();
-        for (Student member : membersRepository.findAllStudents()) {
-            if (member != null) {
-                String body = String.format(TABLE_STUDENTS_FORMAT,
-                        member.getNumberOfStudent(),
-                        member.getId(),
-                        member.getFirstName(),
-                        member.getSecondName(),
-                        member.getAge(),
-                        member.getStudentGroup(),
-                        member.getAverageScore());
-                System.out.println(body);
+    public void printStudents(String type) {
+
+        switch (type) {
+            case "array" -> {
+                printHeaderForStudents();
+                for (Student member : membersRepositoryForArray.findAllStudents()) {
+                    if (member != null) {
+                        String body = String.format(TABLE_STUDENTS_FORMAT,
+                                member.getNumberOfStudent(),
+                                member.getId(),
+                                member.getFirstName(),
+                                member.getSecondName(),
+                                member.getAge(),
+                                member.getStudentGroup(),
+                                member.getAverageScore());
+                        System.out.println(body);
+                    }
+                }
+                printDividerStudents();
+            }
+
+            case "list" -> {
+                printHeaderForStudents();
+                for (Student member : membersRepositoryForList.findAllStudents()) {
+                    if (member != null) {
+                        String body = String.format(TABLE_STUDENTS_FORMAT,
+                                member.getNumberOfStudent(),
+                                member.getId(),
+                                member.getFirstName(),
+                                member.getSecondName(),
+                                member.getAge(),
+                                member.getStudentGroup(),
+                                member.getAverageScore());
+                        System.out.println(body);
+                    }
+                }
+                printDividerStudents();
             }
         }
-        printDividerStudents();
     }
 
-    public void sortStudentsOfAverageScore() {
+    public void sortStudentsOfAverageScoreForArray() {
 
-        Student[] students = membersRepository.findAllStudents();
+        Student[] students = membersRepositoryForArray.findAllStudents();
         Student temp;
         for (int i = 0; i < students.length; i++) {
             int num = i + 1;
@@ -56,9 +86,14 @@ public class RectorService {
         }
     }
 
-    public void sortTeacherOfWorksHours() {
+    public void sortStudentsOfAverageScoreForList() {
+        List<Student> students = membersRepositoryForList.findAllStudents();
+        students.sort(Comparator.comparing(Student::getAverageScore));
+    }
 
-        Teacher[] teachers = membersRepository.findAllTeachers();
+    public void sortTeacherOfWorksHoursForArray() {
+
+        Teacher[] teachers = membersRepositoryForArray.findAllTeachers();
         Teacher temp;
         for (int i = 0; i < teachers.length; i++) {
             int num = i + 1;
@@ -74,44 +109,88 @@ public class RectorService {
         }
     }
 
-    public Teacher[] findTeacherByTaxType(TaxType type) {
+    public void sortTeacherOfWorksHoursForList() {
+        List<Teacher> teachers = membersRepositoryForList.findAllTeachers();
+        teachers.sort(Comparator.comparing(Teacher::getNumberOfWorksHours));
+    }
+
+
+    public Teacher[] findTeacherByTaxTypeForArray(TaxType type) {
+
         int size = 0;
-        Teacher[] allTeachers = membersRepository.findAllTeachers();
+        Teacher[] allTeachers = membersRepositoryForArray.findAllTeachers();
         for (Teacher teacher : allTeachers) {
             if (teacher != null && teacher.getTypeOfEmploee() == type) {
                 size++;
             }
         }
 
-        Teacher[] filteredEmployees = new Teacher[size];
+        Teacher[] filteredEmployeesForArray = new Teacher[size];
         int index = 0;
         for (Teacher teacher : allTeachers) {
             if (teacher != null && teacher.getTypeOfEmploee() == type) {
-                filteredEmployees[index] = teacher;
+                filteredEmployeesForArray[index] = teacher;
                 index++;
             }
         }
 
-        return filteredEmployees;
+        return filteredEmployeesForArray;
     }
 
-    public void printTeachers() {
-        printHeaderForTeachers();
-        for (Teacher member : membersRepository.findAllTeachers()) {
-            if (member != null) {
-                String body = String.format(TABLE_TEACHERS_FORMAT,
-                        member.getNumberOfTeacher(),
-                        member.getId(),
-                        member.getFirstName(),
-                        member.getSecondName(),
-                        member.getAge(),
-                        member.getNumberOfWorksHours(),
-                        member.getSalary(),
-                        member.getTypeOfEmploee());
-                System.out.println(body);
+    public List<Teacher> findTeacherByTaxTypeForList(TaxType type) {
+        List<Teacher> teachers = membersRepositoryForList.findAllTeachers();
+        List<Teacher> filteredTeachers = new ArrayList<>();
+        for (Teacher teacher: teachers) {
+            if (teacher.getTypeOfEmploee() == type) {
+                filteredTeachers.add(teacher);
             }
         }
-        printDividerTeachers();
+        return filteredTeachers;
+    }
+
+    public void printTeachers(String type) {
+
+        switch (type) {
+
+            case "array" -> {
+                printHeaderForTeachers();
+                for (Teacher member : membersRepositoryForArray.findAllTeachers()) {
+                    if (member != null) {
+                        String body = String.format(TABLE_TEACHERS_FORMAT,
+                                member.getNumberOfTeacher(),
+                                member.getId(),
+                                member.getFirstName(),
+                                member.getSecondName(),
+                                member.getAge(),
+                                member.getNumberOfWorksHours(),
+                                member.getSalary(),
+                                member.getTypeOfEmploee());
+                        System.out.println(body);
+                    }
+                }
+                printDividerTeachers();
+            }
+
+            case "list" -> {
+                printHeaderForTeachers();
+                for (Teacher member : membersRepositoryForList.findAllTeachers()) {
+                    if (member != null) {
+                        String body = String.format(TABLE_TEACHERS_FORMAT,
+                                member.getNumberOfTeacher(),
+                                member.getId(),
+                                member.getFirstName(),
+                                member.getSecondName(),
+                                member.getAge(),
+                                member.getNumberOfWorksHours(),
+                                member.getSalary(),
+                                member.getTypeOfEmploee());
+                        System.out.println(body);
+                    }
+                }
+                printDividerTeachers();
+
+            }
+        }
     }
 
     private void printHeaderForStudents() {

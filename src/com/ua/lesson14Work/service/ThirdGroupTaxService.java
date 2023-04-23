@@ -11,5 +11,4 @@ public class ThirdGroupTaxService implements  TaxesService{
        return teacher.getSalary() * 0.05 + SINGLE_SOCIAL_CONTRIBUTION_AMOUNT;
 
     }
-
 }
