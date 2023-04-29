@@ -8,7 +8,7 @@ public class Main {
         Thread t1 = new Thread(() -> {
             try {
                 while (true) {
-                    int randomNumber = new Random().nextInt(4, 6);
+                    int randomNumber = new Random().nextInt(1, 11);
                     System.out.println(randomNumber);
                     Thread.sleep(1000);
                     if (randomNumber == 5) {
