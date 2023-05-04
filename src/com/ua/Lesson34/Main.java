@@ -12,7 +12,10 @@ public class Main {
         Callable<Integer> callable = new RandomNumberCallable();
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
-        callables.add(callable);
+
+        for (int i = 0; i < 100; i++) {
+            callables.add(callable);
+        }
 
         List<Future<Integer>> futures = executorService.invokeAll(callables);
 
