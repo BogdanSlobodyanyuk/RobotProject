@@ -1,0 +1,35 @@
+use robot_dreams;
+
+CREATE table countries
+(
+    id   int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name varchar(40),
+    country_population  int
+);
+
+
+CREATE table cities
+(
+    id   int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name varchar(40),
+    country_id int,
+    city_population int
+
+);
+
+alter table cities
+    ADD FOREIGN KEY (country_id) REFERENCES countries(id);
+
+
+insert into countries (name, country_population) values ('Ukraine',45000000);
+insert into countries (name, country_population) values ('United Kingdom',15000000);
+insert into countries (name, country_population) values ('Poland',25000000);
+
+insert into cities (name, country_id, city_population) values ('Kiev', 1 , 1200000);
+insert into cities (name, country_id, city_population) values ('Warsaw', 3 , 130450);
+insert into cities (name, country_id, city_population) values ('London', 2 , 177800);
+insert into cities (name, country_id, city_population) values ('Kharkov', 1 , 1400000);
+insert into cities (name, country_id, city_population) values ('Sevastopol', 1 , 12000);
+
+
+select *from cities s inner join countries c on s.country_id = c.id
