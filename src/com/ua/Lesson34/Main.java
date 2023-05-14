@@ -18,6 +18,8 @@ public class Main {
         }
 
         List<Future<Integer>> futures = executorService.invokeAll(callables);
+     //   Future<Integer> futures = executorService.submit(callable);
+
 
         for (Future<Integer> future : futures) {
             System.out.println(future.get());
